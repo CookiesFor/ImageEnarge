@@ -80,6 +80,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         _photoImage.bgView.alpha = 0;
     } completion:^(BOOL finished) {
+        //这样移除会有问题：在imageView.m中常见view上的控件时会重复创建，浪费资源。可以在imageView.m中在创建控件时进行判断
         //移除view
         [_photoImage.bgView removeFromSuperview];
     }];
